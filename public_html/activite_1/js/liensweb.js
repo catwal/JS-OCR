@@ -1,6 +1,6 @@
-/* 
-Activité 1
-*/
+/*
+ Activité 1
+ */
 
 // Liste des liens Web à afficher. Un lien est défini par :
 // - son titre
@@ -25,3 +25,27 @@ var listeLiens = [
 ];
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
+var spanElt = document.createElement("span");
+
+listeLiens.forEach(function(listeLiens) {
+
+    var lienElt = document.createElement("div");
+    lienElt.setAttribute("class", "lien");
+    var strongElt = document.createElement("a");
+
+    strongElt.textContent = listeLiens.titre;
+    strongElt.style.color = "#428bca";
+    strongElt.setAttribute("href", listeLiens.url);
+    var urlElt = document.createElement("p");
+    urlElt.textContent = listeLiens.url;
+
+    var pElt = document.createElement("p");
+    pElt.textContent = "Ajouté par " + listeLiens.auteur;
+
+    lienElt.appendChild(strongElt);
+    lienElt.appendChild(urlElt);
+    lienElt.appendChild(pElt);
+    spanElt.appendChild(lienElt);
+
+});
+document.getElementById("contenu").appendChild(spanElt);
